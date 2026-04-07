@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,16 +16,20 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Fill a one-dimensional ndarray with linearly spaced numeric elements which increment by `1` starting from one.
+* Fills a one-dimensional ndarray with linearly spaced numeric elements which increment by `1` starting from one.
 *
-* @module @stdlib/blas-ext-base-ndarray-gone-to
+* @param arrays - array-like object containing a one-dimensional input ndarray
+* @returns input ndarray
 *
 * @example
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
-* var goneTo = require( '@stdlib/blas-ext-base-ndarray-gone-to' );
 *
 * var xbuf = [ 0.0, 0.0, 0.0, 0.0 ];
 * var x = new ndarray( 'generic', xbuf, [ 4 ], [ 1 ], 0, 'row-major' );
@@ -34,12 +38,9 @@
 * var out = goneTo( [ x ] );
 * // returns <ndarray>[ 1.0, 2.0, 3.0, 4.0 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function goneTo<T extends typedndarray<unknown> = typedndarray<unknown>>( arrays: [ T ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = goneTo;
